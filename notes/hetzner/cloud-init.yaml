@@ -1,0 +1,27 @@
+users:
+  - name: sasupp
+    groups: users, admin
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCftpzbEYZzyfrpCRxDInIrz5Gu7V0848J3O+qOFGNTBvvQNQTLB/B4PF0swbXde2qGnuAcbnc8Evff19tKUQavAPmqo0OmP7zZDijgFf4cqCFf/tWQImVfZhyyEWcuA1OE1hGh5LdGGqBhrEh5tmqLw8tapJM4snWvrD84MUVOCVfOw6z4cQHWkl9R4ehVQ9duS+HA1whLCoqiFbJwpttUW8en1bElBK9UkH00wnTFaEQSWBRgwQhyGuFwn1TsTQT5FaQz98Wk+q/JIMwgZGoi7FIlil4P3ODMADCraBnbZYBxR3M+qx/k1YLIbNmmATrUdNzIvLiENho4BArRUjJtTwK0uToM51OPIjWjaOIKH04S41G8ZhYiSc4zvfYdtctYSmJHl92N3XdDPWRLNoJr6B7xQStq60qKSTicobomOPnH5auCD0mixjRieUpzSFfdUNA0KH3ibJOVHoe8XsIBI4Z8KS4CBAg0cW7enLnaXp5bLVkvtDb1i76SJhg5Ars= sasupp@sasupp-Ideapad
+
+packages:
+  - fail2ban
+  - ufw
+package_update: true
+package_upgrade: true
+runcmd:
+  - printf "[sshd]\nenabled = true\nbanaction = iptables-multiport" > /etc/fail2ban/jail.local
+  - systemctl enable fail2ban
+  - ufw allow OpenSSH
+  - ufw enable
+  - sed -i -e '/^PermitRootLogin/s/^.*$/PermitRootLogin no/' /etc/ssh/sshd_config
+  - sed -i -e '/^PasswordAuthentication/s/^.*$/PasswordAuthentication no/' /etc/ssh/sshd_config
+  - sed -i -e '/^X11Forwarding/s/^.*$/X11Forwarding no/' /etc/ssh/sshd_config
+  - sed -i -e '/^#MaxAuthTries/s/^.*$/MaxAuthTries 2/' /etc/ssh/sshd_config
+  - sed -i -e '/^#AllowTcpForwarding/s/^.*$/AllowTcpForwarding no/' /etc/ssh/sshd_config
+  - sed -i -e '/^#AllowAgentForwarding/s/^.*$/AllowAgentForwarding no/' /etc/ssh/sshd_config
+  - sed -i -e '/^#AuthorizedKeysFile/s/^.*$/AuthorizedKeysFile .ssh\/authorized_keys/' /etc/ssh/sshd_config
+  - sed -i '$a AllowUsers sasupp' /etc/ssh/sshd_config
+  - reboot

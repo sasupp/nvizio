@@ -1,0 +1,56 @@
+<div>
+	{{range .HtmlTable}}
+	<table>
+		<thead>
+			<tr class="{{.Header.Style}}">
+				{{ range .Header.Cells }}
+				{{if .Href }}
+				<th scope="col"><a href={{.Href}}>{{unescape .Text}}</a></th>
+				{{else}}
+				<th scope="col">{{unescape .Text}}</th>
+				{{end}}
+				{{end}}
+			</tr>
+		</thead>
+		<tbody>
+			{{ range .Body }}
+			<tr class="{{.Style}}">
+				{{range .Cells}}
+				{{if .Href }}
+				<td><a href={{.Href}}>{{unescape .Text}}</a></td>
+				{{else}}
+				<td>{{unescape .Text}}</td>
+				{{end}}
+				{{end}}
+			</tr>
+			{{end}}
+		</tbody>
+	</table>
+	{{end}}
+</div>
+
+<style>
+	.abstract-row td {
+		color: #aaa;
+	}
+
+	.axis-row td {
+		color: #aaa;
+	}
+
+	.member-row td {
+		color: #aaa;
+	}
+
+	.total-row td {
+		font-weight: bold;
+		border-top: 2px solid #000000;
+		/* background-color: #f3f3f3; */
+		border-bottom: 2px solid #000000;
+	}
+
+	.highlight-row td {
+		font-weight: bold;
+		/* background-color: #f3f3f3; */
+	}
+</style>

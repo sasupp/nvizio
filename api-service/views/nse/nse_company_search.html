@@ -1,0 +1,7 @@
+<div>
+    {{range .NseCompanyList}}
+    <hgroup>
+        <h4><a href="/nse/company/{{.Ticker}}/feed">{{.Ticker}}</a> : {{.CompanyName}}</h4>
+    </hgroup>
+    {{end}}
+</div>

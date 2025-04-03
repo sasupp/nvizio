@@ -1,0 +1,14 @@
+<div>
+    {{range .NseFeed}}
+    <hgroup>
+        <h4><a href="/nse/company/{{.Ticker}}/feed">{{.Ticker}}</a> : {{.CompanyName}}</h4>
+        <h5>{{.Subject}}</h5>
+        <small>{{.PublishTime}}</small>
+        <blockquote>
+            {{.Details}}
+            </br>
+            <small>- <a href={{.Attachment}} rel="noopener noreferrer">Link</a></small>
+        </blockquote>
+    </hgroup>
+    {{end}}
+</div>

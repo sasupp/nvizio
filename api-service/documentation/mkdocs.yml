@@ -1,0 +1,10 @@
+site_name: xtrinio
+site_url: https://xtrinio.com/
+site_description: Stock API to convert XBRL filings to JSON
+theme:
+  name: material
+markdown_extensions:
+  - admonition
+  - pymdownx.tabbed
+  - pymdownx.superfences
+  - pymdownx.details

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Stock API">
+    <title>Stock API</title>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"/>
+</head>
+<body>
+    <main class="container">
+        <div class="grid">
+            <div>
+                <nav>
+                    <ul>
+                        <form>
+                            <div class="grid">
+                                <input type="search" id="search" name="search" placeholder="Search">
+                                <button type="submit" formaction="/api/v1/company">Submit</button>
+                            </div>  
+                          </form>
+                    </ul>
+                </nav>
+            <div>
+            {{embed}}
+        </div>
+    </main>
+</body>
+</html>
+
+<style>
+html * {
+    font-family: sans-serif;
+}
+</style>

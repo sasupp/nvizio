@@ -1,0 +1,162 @@
+/* Assuming Pico CSS is located in a folder named "pico" */
+@import "https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css";
+
+/* Theme Variables (Warm Tones) */
+:root {
+    --primary-color: #5c4033;
+    --secondary-color: #fbf2e4;
+    /* Light Beige */
+    --text-color: #333;
+    /* Dark Brown */
+    background-color: var(--secondary-color);
+}
+
+/* Base Styles */
+body {
+    color: var(--text-color);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* Header Styles */
+/* header h1 {
+    color: var(--primary-color);
+} */
+
+nav ul li {
+    color: var(--primary-color);
+    text-decoration: none;
+    /* Remove default underline */
+}
+
+nav ul li a.active {
+    text-decoration: underline;
+    /* Add underline for active link */
+    font-weight: bold;
+    /* Optional: makes the active link stand out more */
+}
+
+
+nav ul li a.active {
+    text-decoration: underline;
+    font-weight: bold;
+    /* Optional: makes the active link stand out more */
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--secondary-color);
+    color: var(--text-color)
+}
+
+table th,
+table td {
+    border: 1px solid var(--primary-color);
+    /* Example border color */
+    padding: 8px;
+    background-color: var(--secondary-color);
+    /* Make the cell background transparent */
+}
+
+.total-row td {
+    font-weight: bold;
+    border-top: 1px solid #000000;
+    /* background-color: #f3f3f3; */
+    border-bottom: 1px solid #000000;
+}
+
+.sell-type {
+    color: #D9534F
+}
+
+.buy-type {
+    color: green
+}
+
+.center-text-margin {
+    text-align: center;
+    margin: 1rem auto;
+    color: var(--primary-color);
+}
+
+.center-text {
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    margin-right: 10px;
+    /* Adjust the space between the logo and the text */
+    height: 40px;
+    /* Adjust the height of the logo */
+    width: auto;
+    /* Maintain aspect ratio */
+}
+
+/* Form Styles */
+.form-group {
+    margin: 1rem auto;
+    max-width: 300px;
+}
+
+.form-control {
+    display: block;
+    width: 50%;
+    padding: 0.5rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+}
+
+input[type="search"] {
+    background-color: #e0d6c7;
+    border: 1px solid #ddd;
+    padding: 5px;
+    margin-top: auto;
+}
+
+#back-to-top {
+    position: fixed;
+    /* Fix the button to the bottom of the page */
+    bottom: 10px;
+    /* Adjust the distance from the bottom */
+    right: 10px;
+    /* Adjust the distance from the right */
+    width: 30px;
+    /* Set the button width */
+    height: 30px;
+    /* Set the button height */
+    background-color: #99795e;
+    /* A darker brown from your theme */
+    color: #fff;
+    /* White text color */
+    border: none;
+    /* Remove default border */
+    border-radius: 50%;
+    /* Make the button round */
+    text-align: center;
+    /* Center the icon */
+    line-height: 40px;
+    /* Align icon vertically within the button */
+    opacity: 0.4;
+    /* Set a semi-transparent initial state */
+    transition: opacity 0.2s ease-in-out;
+    /* Smooth opacity transition on hover */
+    z-index: 100;
+    /* Ensure button stays above other elements */
+}
+
+#back-to-top:hover {
+    opacity: 1;
+    /* Button becomes fully opaque on hover */
+}

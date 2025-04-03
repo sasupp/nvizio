@@ -1,0 +1,1 @@
+curl -X GET -u <api_key>: https://api.company-information.service.gov.uk/company/03905741/filing-history
